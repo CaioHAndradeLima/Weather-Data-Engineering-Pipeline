@@ -7,7 +7,7 @@ from airflow.operators.python import PythonOperator
 
 sys.path.append("/opt/airflow")
 
-from scripts.ingest_noaa_annual_aws_s3 import run  # noqa: E402
+from src.weather_pipeline.ingestion.ingest_noaa_annual_aws_s3 import run
 
 
 default_args = {

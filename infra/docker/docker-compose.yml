@@ -47,7 +47,7 @@ services:
       AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
     volumes:
       - ../airflow/dags:/opt/airflow/dags
-      - ../scripts:/opt/airflow/scripts
+      - ../ingestion:/opt/airflow/ingestion
       - ../aws:/opt/airflow/aws
       - airflow-logs:/opt/airflow/logs
       - ~/.aws:/home/airflow/.aws:ro
@@ -72,7 +72,7 @@ services:
       AIRFLOW__CORE__FERNET_KEY: ""
     volumes:
       - ../airflow/dags:/opt/airflow/dags
-      - ../scripts:/opt/airflow/scripts
+      - ../ingestion:/opt/airflow/ingestion
       - ../aws:/opt/airflow/aws
       - airflow-logs:/opt/airflow/logs
       - ~/.aws:/home/airflow/.aws:ro
