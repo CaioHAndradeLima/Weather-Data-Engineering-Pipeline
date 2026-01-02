@@ -7,7 +7,7 @@ from airflow.operators.empty import EmptyOperator
 # Import the ingestion logic
 import sys
 sys.path.append("/opt/airflow")
-from scripts.ingest_noaa_annual import run
+from scripts.ingest_noaa_annual_aws_s3 import run
 
 default_args = {
     "owner": "data-engineering",
