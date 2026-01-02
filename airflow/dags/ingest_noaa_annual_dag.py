@@ -6,6 +6,7 @@ from airflow.operators.empty import EmptyOperator
 
 # Import the ingestion logic
 import sys
+
 sys.path.append("/opt/airflow")
 from scripts.ingest_noaa_annual_aws_s3 import run
 
@@ -16,15 +17,14 @@ default_args = {
     "retry_delay": timedelta(minutes=10),
 }
 
-
 with DAG(
-    dag_id="ingest_noaa_annual",
-    description="Annual incremental ingestion of NOAA weather data into Bronze layer",
-    default_args=default_args,
-    start_date=datetime(2024, 1, 1),
-    schedule_interval="@yearly",
-    catchup=False,
-    tags=["noaa", "weather", "bronze", "ingestion"],
+        dag_id="ingest_noaa_annual",
+        description="Annual incremental ingestion of NOAA weather data into Bronze layer",
+        default_args=default_args,
+        start_date=datetime(2024, 1, 1),
+        schedule_interval="@yearly",
+        catchup=False,
+        tags=["noaa", "weather", "bronze", "ingestion"],
 ) as dag:
     start = EmptyOperator(task_id="start")
     end = EmptyOperator(task_id="end")
