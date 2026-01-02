@@ -57,7 +57,7 @@ jobs:
             "apache-airflow[postgres]==2.8.1" \
             dbt-core \
             dbt-snowflake \
-            Flask-SessionΩ
+            Flask-Session
       
           pip install -e .
       # ---------------------------
