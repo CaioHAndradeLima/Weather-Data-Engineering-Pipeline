@@ -111,7 +111,7 @@ jobs:
                   print(f"File: {filename}\nErrors: {errors}")
               exit(1)
               
-          print(f"Loaded {len(dagbag.dags)} DAGs successfully")
+          print(f"Loaded {len(dagbag.dags)} DAGs successfully and no errors has been found")
           EOF
       # ---------------------------
       # DBT validation (Snowflake-ready)
