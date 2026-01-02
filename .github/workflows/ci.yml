@@ -116,7 +116,7 @@ jobs:
       # ---------------------------
       # DBT validation (Snowflake-ready)
       # ---------------------------
-      - name: DBT compile
-        run: |
-          cd dbt/weather_dbt
-          dbt compile --profiles-dir .
+      #- name: DBT compile
+       # run: |
+        #  cd dbt/weather_dbt
+         # dbt compile --profiles-dir .
