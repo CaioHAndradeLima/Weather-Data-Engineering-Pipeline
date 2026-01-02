@@ -59,6 +59,8 @@ jobs:
       # Unit tests
       # ---------------------------
       - name: Run unit tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: pytest -q
 
       # ---------------------------
