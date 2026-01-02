@@ -85,6 +85,9 @@ jobs:
       # ---------------------------
       # Airflow DAG validation
       # ---------------------------
+# ---------------------------
+      # Airflow DAG validation
+      # ---------------------------
       - name: Validate Airflow DAGs
         env:
           AIRFLOW__CORE__EXECUTOR: SequentialExecutor
@@ -93,13 +96,23 @@ jobs:
         run: |
           airflow db migrate
           python - <<EOF
+          import os
           from airflow.models import DagBag
-          dagbag = DagBag()
+          
+          # Point to the specific dags folder in your repo
+          dag_folder = os.path.join(os.getcwd(), 'airflow/dags')
+          print(f"Searching for DAGs in: {dag_folder}")
+          
+          dagbag = DagBag(dag_folder=dag_folder, include_examples=False)
+          
           if dagbag.import_errors:
-              raise Exception(dagbag.import_errors)
+              print("Import Errors found:")
+              for filename, errors in dagbag.import_errors.items():
+                  print(f"File: {filename}\nErrors: {errors}")
+              exit(1)
+              
           print(f"Loaded {len(dagbag.dags)} DAGs successfully")
           EOF
-
       # ---------------------------
       # DBT validation (Snowflake-ready)
       # ---------------------------
