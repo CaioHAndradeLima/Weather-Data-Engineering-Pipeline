@@ -61,7 +61,7 @@ jobs:
       - name: Run unit tests
         env:
           PYTHONPATH: ${{ github.workspace }}
-        run: pytest -q
+        run: python -m pytest
 
       # ---------------------------
       # Airflow DAG validation
