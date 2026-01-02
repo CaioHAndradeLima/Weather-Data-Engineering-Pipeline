@@ -49,17 +49,17 @@ jobs:
       
           pip install -r requirements.txt
       
+          # Ensure every line before the last one ends with a backslash "\"
           pip install \
             pytest \
             ruff \
             black \
-            "apache-airflow[postgres,flask]==2.8.1" \
+            "apache-airflow[postgres]==2.8.1" \
             dbt-core \
-            dbt-snowflake
-            Flask-Session
+            dbt-snowflake \
+            Flask-SessionΩ
       
           pip install -e .
-
       # ---------------------------
       # Python quality
       # ---------------------------
