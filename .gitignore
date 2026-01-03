@@ -82,3 +82,8 @@ docker-compose.override.yml
 # OS / Misc
 # =====================================
 nohup.out
+
+# =====================================
+# Airbyte
+# =====================================
+infra/airbyte/airbyte

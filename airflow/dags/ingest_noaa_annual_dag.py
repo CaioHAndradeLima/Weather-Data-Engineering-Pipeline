@@ -1,14 +1,10 @@
 from datetime import datetime, timedelta
-import sys
 
 from airflow import DAG
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
 
-sys.path.append("/opt/airflow")
-
-from src.weather_pipeline.ingestion.ingest_noaa_annual_aws_s3 import run
-
+from weather_pipeline.ingestion.ingest_noaa_annual_aws_s3 import run
 
 default_args = {
     "owner": "data-engineering",
@@ -22,7 +18,7 @@ with DAG(
     description="Annual incremental ingestion of NOAA weather data into Bronze layer",
     default_args=default_args,
     start_date=datetime(2024, 1, 1),
-    schedule_interval="@yearly",
+    schedule="@yearly",
     catchup=False,
     tags=["noaa", "weather", "bronze", "ingestion"],
 ) as dag:
