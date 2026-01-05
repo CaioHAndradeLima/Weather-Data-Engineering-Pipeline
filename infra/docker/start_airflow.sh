@@ -1,2 +1,2 @@
 #!/bin/bash
-docker compose up airflow-webserver airflow-scheduler
+docker compose up -d airflow-webserver airflow-scheduler

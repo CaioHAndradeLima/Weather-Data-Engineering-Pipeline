@@ -17,8 +17,8 @@ services:
 
   airflow-init:
     build:
-      context: ..
-      dockerfile: docker/Dockerfile
+      context: ../..          # project root
+      dockerfile: infra/docker/Dockerfile
     depends_on:
       postgres:
         condition: service_healthy
@@ -34,8 +34,8 @@ services:
 
   airflow-webserver:
     build:
-      context: ..
-      dockerfile: docker/Dockerfile
+      context: ../..          # project root
+      dockerfile: infra/docker/Dockerfile
     depends_on:
       postgres:
         condition: service_healthy
@@ -46,9 +46,9 @@ services:
       AIRFLOW__CORE__FERNET_KEY: ""
       AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
     volumes:
-      - ../airflow/dags:/opt/airflow/dags
-      - ../ingestion:/opt/airflow/ingestion
-      - ../aws:/opt/airflow/aws
+      - ../../airflow/dags:/opt/airflow/dags
+      - ../../ingestion:/opt/airflow/ingestion
+      - ../../aws:/opt/airflow/aws
       - airflow-logs:/opt/airflow/logs
       - ~/.aws:/home/airflow/.aws:ro
 
@@ -59,8 +59,8 @@ services:
 
   airflow-scheduler:
     build:
-      context: ..
-      dockerfile: docker/Dockerfile
+      context: ../..          # project root
+      dockerfile: infra/docker/Dockerfile
     command: scheduler
     depends_on:
       postgres:
@@ -71,9 +71,9 @@ services:
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       AIRFLOW__CORE__FERNET_KEY: ""
     volumes:
-      - ../airflow/dags:/opt/airflow/dags
-      - ../ingestion:/opt/airflow/ingestion
-      - ../aws:/opt/airflow/aws
+      - ../../airflow/dags:/opt/airflow/dags
+      - ../../ingestion:/opt/airflow/ingestion
+      - ../../aws:/opt/airflow/aws
       - airflow-logs:/opt/airflow/logs
       - ~/.aws:/home/airflow/.aws:ro
     restart: always
