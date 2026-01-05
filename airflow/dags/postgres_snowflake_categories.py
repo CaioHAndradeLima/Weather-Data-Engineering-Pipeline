@@ -12,12 +12,12 @@ def run():
 
 
 with DAG(
-        dag_id="ingest_bronze_postgres_snowflake_categories",
-        description="Ingest categories table data from Postgres to Snowflake (Bronze)",
-        start_date=datetime(2024, 1, 1),
-        schedule_interval='0,30 * * * *',
-        catchup=False,
-        tags=["bronze", "ingestion", "airbyte"],
+    dag_id="ingest_bronze_postgres_snowflake_categories",
+    description="Ingest categories table data from Postgres to Snowflake (Bronze)",
+    start_date=datetime(2024, 1, 1),
+    schedule_interval="0,30 * * * *",
+    catchup=False,
+    tags=["bronze", "ingestion", "airbyte"],
 ) as dag:
     start = EmptyOperator(task_id="start")
 
