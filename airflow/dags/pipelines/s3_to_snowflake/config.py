@@ -1,4 +1,3 @@
-
 S3_BUCKET = "snowflake-data-engineer-project"
 S3_PREFIX = "raw/revenue/year=2024/"
 

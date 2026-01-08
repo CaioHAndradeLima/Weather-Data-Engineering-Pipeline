@@ -13,7 +13,4 @@ def count_s3_files_task(**context):
 
     validate_file_count(count)
 
-    context["ti"].xcom_push(
-        key="expected_files",
-        value=count
-    )
+    context["ti"].xcom_push(key="expected_files", value=count)

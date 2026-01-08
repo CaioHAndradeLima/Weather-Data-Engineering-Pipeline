@@ -1,5 +1,6 @@
 import boto3
 
+
 class S3Service:
     def __init__(self, bucket: str, prefix: str):
         self.bucket = bucket
@@ -7,10 +8,7 @@ class S3Service:
         self.client = boto3.client("s3")
 
     def list_csv_files(self) -> list[str]:
-        response = self.client.list_objects_v2(
-            Bucket=self.bucket,
-            Prefix=self.prefix
-        )
+        response = self.client.list_objects_v2(Bucket=self.bucket, Prefix=self.prefix)
 
         return [
             obj["Key"]
