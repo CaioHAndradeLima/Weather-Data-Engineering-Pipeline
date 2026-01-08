@@ -13,7 +13,9 @@ from airflow.dags.pipelines.s3_to_snowflake.config import (
     SNOWFLAKE_TABLE,
     SNOWFLAKE_FILE_FORMAT,
 )
-from airflow.dags.pipelines.s3_to_snowflake.snowflake_service import SnowflakeCopyBuilder
+from airflow.dags.pipelines.s3_to_snowflake.snowflake_service import (
+    SnowflakeCopyBuilder,
+)
 from airflow.dags.pipelines.s3_to_snowflake.tasks import count_s3_files_task
 
 
