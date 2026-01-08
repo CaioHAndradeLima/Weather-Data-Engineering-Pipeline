@@ -1,6 +1,6 @@
-from pipelines.s3_to_snowflake.config import S3_BUCKET, S3_PREFIX
-from pipelines.s3_to_snowflake.s3_service import S3Service
-from pipelines.s3_to_snowflake.validations import validate_file_count
+from airflow.dags.pipelines.s3_to_snowflake.config import S3_BUCKET, S3_PREFIX
+from airflow.dags.pipelines.s3_to_snowflake.s3_service import S3Service
+from airflow.dags.pipelines.s3_to_snowflake.validations import validate_file_count
 
 
 def count_s3_files_task(**context):
