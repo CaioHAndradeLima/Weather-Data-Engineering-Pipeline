@@ -6,15 +6,15 @@ from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
 from airflow.utils.task_group import TaskGroup
 from datetime import datetime
 
-from pipelines.s3_to_snowflake.config import (
+from dags.pipelines.s3_to_snowflake.config import (
     S3_BUCKET,
     S3_PREFIX,
     SNOWFLAKE_STAGE,
     SNOWFLAKE_TABLE,
     SNOWFLAKE_FILE_FORMAT,
 )
-from pipelines.s3_to_snowflake.snowflake_service import SnowflakeCopyBuilder
-from pipelines.s3_to_snowflake.tasks import count_s3_files_task
+from dags.pipelines.s3_to_snowflake.snowflake_service import SnowflakeCopyBuilder
+from dags.pipelines.s3_to_snowflake.tasks import count_s3_files_task
 
 
 with DAG(
