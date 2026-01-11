@@ -1,3 +1,3 @@
 #!/bin/bash
 
-abctl local install --host example.com --insecure-cookies
+abctl local install --host example.com --insecure-cookies --disable-auth
